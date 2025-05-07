@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="homeStyle.css" />
+  <title>ХААЦУСХ</title>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="home.html">Хөдөө аж ахуйн цаг уурын судалгааны хэлтэс</a></div>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <a href="pages/toim.html">Тойм, прогноз, зөвлөмж</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">ХААЦУ-ын арав хоногийн тойм</a></li>
+            <li><a href="#">ХААЦУ-ын урьдчилсан мэдээ</a></li>
+            <li><a href="#">ХААЦУ-ын зөвлөмж</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="pages/product.html">ХААЦУ-ын ажиглалт судалгаа</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Бэлчээрийн даац</a></li>
+            <li><a href="#">Бэлчээрийн ургамлын үзэгдэл зүй</a></li>
+            <li><a href="#">Бэлчээрийн хөнөөлт царцаа</a></li>
+            <li><a href="#">Бэлчээрийн хөнөөлт мэрэгчдийн</a></li>
+            <li><a href="#">Таримал ургамлын ажиглалт судалгаа</a></li>
+            <li><a href="#">Зудын эрсдэлийн зураглал, үнэлгээ</a></li>
+            <li><a href="#">Гангийн эрсдэлийн зураглал, үнэлгээ</a></li>
+            <li><a href="#">Цасны өндөр бүрхэцийн зураг</a></li>
+            <li><a href="#">Хөрсний чийгийн мэдээ</a></li>
+          </ul>
+        </li>
+        <li><a href="pages/zaavar.html">Ном, заавар, өгүүлэл</a></li>
+      </ul>
+      <div class="toggle" onclick="toggleSidebar()">☰</div>
+    </div>
+
+    <!-- Mobile sidebar -->
+    <div class="toggle-drop" id="toggleMenu">
+      <span class="close-btn" onclick="toggleSidebar()">×</span>
+      <ul>
+        <li>
+          <a href="pages/toim.html">Тойм, прогноз, зөвлөмж</a>
+          <ul>
+            <li><a href="#">ХААЦУ-ын арав хоногийн тойм</a></li>
+            <li><a href="#">ХААЦУ-ын урьдчилсан мэдээ</a></li>
+            <li><a href="#">ХААЦУ-ын зөвлөмж</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="pages/product.html">ХААЦУ-ын ажиглалт судалгаа</a>
+          <ul>
+            <li><a href="#">Бэлчээрийн даац</a></li>
+            <li><a href="#">Бэлчээрийн ургамлын үзэгдэл зүй</a></li>
+            <li><a href="#">Бэлчээрийн хөнөөлт царцаа</a></li>
+            <li><a href="#">Бэлчээрийн хөнөөлт мэрэгчдийн</a></li>
+            <li><a href="#">Таримал ургамлын ажиглалт судалгаа</a></li>
+            <li><a href="#">Зудын эрсдэлийн зураглал, үнэлгээ</a></li>
+            <li><a href="#">Цасны өндөр бүрхэцийн зураг</a></li>
+            <li><a href="#">Хөрсний чийгийн мэдээ</a></li>
+          </ul>
+        </li>
+        <li><a href="pages/zaavar.html">Ном, заавар, өгүүлэл</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <section class="face">
+      <h2>Хөдөө аж ахуйн цаг уурын судалгааны хэлтэс</h2>
+    </section>
+    
+    <section class="items">
+      <div class="item-card">
+        <h4><a href="#">neg</a></h4>
+        <p>tailbar</p>
+      </div>
+      <div class="item-card">
+        <h4><a href="#">hoyr</a></h4>
+        <p>tailbar</p>
+      </div>
+      <div class="item-card">
+        <h4><a href="#">guraw</a></h4>
+        <p>tailbar</p>
+      </div>
+      <div class="item-card">
+        <h4><a href="#">dorow</a></h4>
+        <p>tailbar</p>
+      </div>
+      <div class="item-card">
+        <h4><a href="#">taw</a></h4>
+        <p>tailbar</p>
+      </div>
+      <div class="item-card">
+        <h4><a href="#">zurga</a></h4>
+        <p>tailbar</p>
+      </div>
+    </section>
+
+    <footer class="shoes">
+      <div class="contact">
+        <h4>Холбоо барих <p>Утас-321523</p></h4>
+        <ul class="other-contact">
+          <li><a href="#">weather gov</a></li>
+          <li><a href="#">ЦАТЗСХ</a></li>
+          <li><a href="#">ЦУХМХ</a></li>
+          <li><a href="#">УАӨНСХ</a></li>
+          <li><a href="#">ГУСХ</a></li>
+        </ul>
+      </div>
+      <div class="end">
+        <p>ХААЦУСХ 2025 он</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('toggleMenu').classList.toggle('open');
+    }
+
+    // Automatically add padding based on navbar height
+    window.addEventListener('load', () => {
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
+      document.querySelector('.main-container').style.paddingTop = navbarHeight + 'px';
+    });
+    window.addEventListener('load', () => {
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    document.querySelector('.toggle-drop').style.top = navbarHeight + 'px';
+    });
+  </script>
+</body>
+</html>
