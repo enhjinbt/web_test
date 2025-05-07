@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="zaavarStyle.css">
+    <title>Ном, заавар, өгүүлэл</title>
+</head>
+<body>
+    <header>
+      <div class="navbar">
+        <div class="logo"><a href="../home.html">Хөдөө аж ахуйн цаг уурын судалгааны хэлтэс</a></div>
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a href="toim.html">Тойм, прогноз, зөвлөмж</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">ХААЦУ-ын арав хоногийн тойм</a></li>
+              <li><a href="#">ХААЦУ-ын урьдчилсан мэдээ</a></li>
+              <li><a href="#">ХААЦУ-ын зөвлөмж</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown">
+            <a href="product.html">ХААЦУ-ын ажиглалт судалгаа</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Бэлчээрийн даац</a></li>
+              <li><a href="#">Бэлчээрийн ургамлын үзэгдэл зүй</a></li>
+              <li><a href="#">Бэлчээрийн хөнөөлт царцаа</a></li>
+              <li><a href="#">Бэлчээрийн хөнөөлт мэрэгчдийн</a></li>
+              <li><a href="#">Таримал ургамлын ажиглалт судалгаа</a></li>
+              <li><a href="#">Зудын эрсдэлийн зураглал, үнэлгээ</a></li>
+              <li><a href="#">Гангийн эрсдэлийн зураглал, үнэлгээ</a></li>
+              <li><a href="#">Цасны өндөр бүрхэцийн зураг</a></li>
+              <li><a href="#">Хөрсний чийгийн мэдээ</a></li>
+            </ul>
+          </li>
+          <li><a href="zaavar.html">Ном, заавар, өгүүлэл</a></li>
+        </ul>
+        <div class="toggle" onclick="toggleSidebar()">☰</div>
+      </div>
+      
+    
+    <!-- Mobile drh sidebar -->
+    <div class="toggle-drop" id="toggleMenu">
+        <span class="close-btn" onclick="toggleSidebar()">×</span>
+        <ul>
+          <li>
+            <a href="toim.html">Тойм, прогноз, зөвлөмж</a>
+            <ul>
+              <li><a href="#">ХААЦУ-ын арав хоногийн тойм</a></li>
+              <li><a href="#">ХААЦУ-ын урьдчилсан мэдээ</a></li>
+              <li><a href="#">ХААЦУ-ын зөвлөмж</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="product.html">ХААЦУ-ын ажиглалт судалгаа</a>
+            <ul>
+              <li><a href="#">Бэлчээрийн даац</a></li>
+              <li><a href="#">Бэлчээрийн ургамлын үзэгдэл зүй</a></li>
+              <li><a href="#">Бэлчээрийн хөнөөлт царцаа</a></li>
+              <li><a href="#">Бэлчээрийн хөнөөлт мэрэгчдийн</a></li>
+              <li><a href="#">Таримал ургамлын ажиглалт судалгаа</a></li>
+              <li><a href="#">Зудын эрсдэлийн зураглал, үнэлгээ</a></li>
+              <li><a href="#">Цасны өндөр бүрхэцийн зураг</a></li>
+              <li><a href="#">Хөрсний чийгийн мэдээ</a></li>
+            </ul>
+          </li>
+          <li><a href="zaavar.html">Ном, заавар, өгүүлэл</a></li>
+        </ul>
+      </div>
+    </header>
+
+      
+      
+      <!-- Main Content -->
+      <div class="main-content">
+        <aside class="sidebar">
+          <ul>
+              <li onclick="filterByType('all')">Бүгд</li>
+              <li onclick="filterByType('book')">Ном</li>
+              <li onclick="filterByType('manual')">Заавар</li>
+              <li onclick="filterByType('research')">Судалгааны өгүүлэл</li>
+            </ul>
+          </aside>
+          <div class="side-content">
+            <div class="search-bar">
+              <input type="text" id="searchInput" placeholder="Түлхүүр үг хайх...">
+            </div>
+            <div class="document-list" id="docList"></div>
+          </div>
+          
+      </div>
+    
+    
+
+      <footer class="shoes">
+        <div class="contact">
+            <h4>Холбоо барих <p>Утас-321523</p>  </h4>
+            <ul class="other-contact">
+                <li><a href="#">weather gov</a></li>
+                <li><a href="#">ЦАТЗСХ</a></li>
+                <li><a href="#">ЦУХМХ</a></li>
+                <li><a href="#">УАӨНСХ</a></li>
+                <li><a href="#">ГУСХ</a></li>
+            </ul>
+        </div>
+        <div class="end">
+          <p>ХААЦУСХ 2025 он</p>
+        </div>
+    </footer>
+
+  <script>
+        // toggle-iin function
+        function toggleSidebar() {
+          document.getElementById('toggleMenu').classList.toggle('open');
+        }
+      
+        const documents = [
+      { title: "Хөрсний чийгийн судалгаа", type: "research", link: "#" },
+      { title: "Хөдөө аж ахуйн заавар", type: "manual", link: "#" },
+      { title: "Цаг уурын судалгаа", type: "research", link: "#" },
+      // nemeh
+    ];
+
+    // search function
+    let selectedType = "all";
+    let currentKeyword = "";
+    
+    function renderDocuments(list) {
+      const listDiv = document.getElementById("docList");
+      listDiv.innerHTML = "";
+    
+      if (list.length === 0) {
+        listDiv.innerHTML = "<p> Илэрц алга.</p>";
+        return;
+      }
+    
+      list.forEach(doc => {
+        const div = document.createElement("div");
+        div.className = "doc-card";
+        div.innerHTML = ` 
+          <a href="${doc.link}" target="_blank">${doc.title}</a>
+        `;
+        listDiv.appendChild(div);
+      });
+    }
+    
+    function applyFilters() {
+      currentKeyword = document.getElementById("searchInput").value.toLowerCase();
+      let filtered = documents;
+    
+      if (currentKeyword) {
+        filtered = filtered.filter(doc =>
+          doc.title.toLowerCase().includes(currentKeyword)
+        );
+        
+      }
+    
+      if (selectedType !== "all") {
+        filtered = filtered.filter(doc => doc.type === selectedType);
+      }
+    
+      renderDocuments(filtered);
+    }
+    
+    function filterByType(type) {
+      selectedType = type;
+      currentKeyword = "";
+      document.getElementById("searchInput").value = ""; 
+      const filtered = type === "all" ? documents : documents.filter(doc => doc.type === type);
+      renderDocuments(filtered);
+    }
+    
+    document.getElementById("searchInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        applyFilters();
+      }
+    });
+    
+      document.getElementById("searchInput").addEventListener("input", applyFilters);
+   
+      window.onload = () => renderDocuments(documents);
+  </script>
+
+
+
+
+</body>
+</html>
