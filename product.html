@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="productStyle.css">
+    <title>ХААЦУ-ын ажиглалт судалгаа</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="../home.html">Хөдөө аж ахуйн цаг уурын судалгааны хэлтэс</a></div>
+            <ul class="nav-links">
+              <li class="nav-dropdown">
+                <a href="toim.html">Тойм, прогноз, зөвлөмж</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">ХААЦУ-ын арав хоногийн тойм</a></li>
+                  <li><a href="#">ХААЦУ-ын урьдчилсан мэдээ</a></li>
+                  <li><a href="#">ХААЦУ-ын зөвлөмж</a></li>
+                </ul>
+              </li>
+              <li class="nav-dropdown">
+                <a href="product.html">ХААЦУ-ын ажиглалт судалгаа</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Бэлчээрийн даац</a></li>
+                  <li><a href="#">Бэлчээрийн ургамлын үзэгдэл зүй</a></li>
+                  <li><a href="#">Бэлчээрийн хөнөөлт царцаа</a></li>
+                  <li><a href="#">Бэлчээрийн хөнөөлт мэрэгчдийн</a></li>
+                  <li><a href="#">Таримал ургамлын ажиглалт судалгаа</a></li>
+                  <li><a href="#">Зудын эрсдэлийн зураглал, үнэлгээ</a></li>
+                  <li><a href="#">Гангийн эрсдэлийн зураглал, үнэлгээ</a></li>
+                  <li><a href="#">Цасны өндөр бүрхэцийн зураг</a></li>
+                  <li><a href="#">Хөрсний чийгийн мэдээ</a></li>
+                </ul>
+              </li>
+              <li><a href="zaavar.html">Ном, заавар, өгүүлэл</a></li>
+            </ul>
+            <div class="toggle" onclick="toggleSidebar()">☰</div>
+          </div>
+          
+        
+        <!-- Mobile drh sidebar -->
+        <div class="toggle-drop" id="toggleMenu">
+            <span class="close-btn" onclick="toggleSidebar()">×</span>
+            <ul>
+              <li>
+                <a href="toim.html">Тойм, прогноз, зөвлөмж</a>
+                <ul>
+                  <li><a href="#">ХААЦУ-ын арав хоногийн тойм</a></li>
+                  <li><a href="#">ХААЦУ-ын урьдчилсан мэдээ</a></li>
+                  <li><a href="#">ХААЦУ-ын зөвлөмж</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="product.html">ХААЦУ-ын ажиглалт судалгаа</a>
+                <ul>
+                  <li><a href="#">Бэлчээрийн даац</a></li>
+                  <li><a href="#">Бэлчээрийн ургамлын үзэгдэл зүй</a></li>
+                  <li><a href="#">Бэлчээрийн хөнөөлт царцаа</a></li>
+                  <li><a href="#">Бэлчээрийн хөнөөлт мэрэгчдийн</a></li>
+                  <li><a href="#">Таримал ургамлын ажиглалт судалгаа</a></li>
+                  <li><a href="#">Зудын эрсдэлийн зураглал, үнэлгээ</a></li>
+                  <li><a href="#">Гангийн эрсдэлийн зураглал, үнэлгээ</a></li>
+                  <li><a href="#">Цасны өндөр бүрхэцийн зураг</a></li>
+                  <li><a href="#">Хөрсний чийгийн мэдээ</a></li>
+                </ul>
+              </li>
+              <li><a href="zaavar.html">Ном, заавар, өгүүлэл</a></li>
+            </ul>
+          </div>
+    </header>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <ul>
+                <li onclick="showSection('daats')">Бэлчээрийн даац</li>
+                <li onclick="showSection('uzui')">Бэлчээрийн ургамлын үзэгдэл зүй</li>
+                <li onclick="showSection('tsartsaa')">Бэлчээрийн хөнөөлт царцаа</li>
+                <li onclick="showSection('meregch')">Бэлчээрийн хөнөөлт мэрэгч</li>
+                <li onclick="showSection('tarimal')">Таримал ургамлын ажиглалт судалгаа</li>
+                <li onclick="showSection('zud')">Зудын эрсдэлийн зураглал, үнэлгээ</li>
+                <li onclick="showSection('gan')">Гангийн эрсдэлийн зураглал, үнэлгээ</li>
+                <li onclick="showSection('tsas')">Цасны өндөр бүрхэцийн зураг</li>
+                <li onclick="showSection('chiig')">Хөрсний чийгийн мэдээ</li>
+
+            </ul>
+        </aside>
+    
+
+    <main class="side-content">
+      <h2 id="sectionTitle">Агуулга</h2>
+      <div class="toolbar">
+        <select id="yearSelect"></select>
+        <select id="monthSelect"></select>
+        <button onclick="searchCurrent()">Хайх</button>
+        <button id="clearBtn" onclick="clearCurrent()" style="display:none">Арилгах</button>
+      </div>
+      <div id="contentGrid" class="photo-grid"></div>
+
+    </main>
+    </div>
+
+    <footer class="shoes">
+      <div class="contact">
+          <h4>Холбоо барих <p>Утас-321523</p>  </h4>
+          <ul class="other-contact">
+              <li><a href="#">weather gov</a></li>
+              <li><a href="#">ЦАТЗСХ</a></li>
+              <li><a href="#">ЦУХМХ</a></li>
+              <li><a href="#">УАӨНСХ</a></li>
+              <li><a href="#">ГУСХ</a></li>
+          </ul>
+      </div>
+      <div class="end">
+        <p>ХААЦУСХ 2025 он</p>
+      </div>
+  </footer>
+
+  <script>
+        function toggleSidebar() {
+          document.getElementById('toggleMenu').classList.toggle('open');
+        }
+
+        function showSection(sectionId) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(sec => {
+        if (sec.id === sectionId) {
+          sec.classList.remove('hidden');
+        } else {
+          sec.classList.add('hidden');
+        }
+     });
+    }
+
+    // main content section hsg
+
+    const sections = {
+      daats: {
+        type: 'mixed',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      uzui: {
+        type: 'mixed',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      tsartsaa: {
+        type: 'photo',
+        data: [
+          { type: 'photo', title: 'Царцаа зураг', year: '2025', month: '1', image: 'photo.jpg', description: 'Царцааны зураг' }
+        ]
+      },
+      meregch: {
+        type: 'mixed',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      tarimal: {
+        type: 'mixed',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      zud: {
+        type: 'mixed',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      gan: {
+        type: 'mixed',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      tsas: {
+        type: 'photo',
+        data: [
+          { type: 'photo', title: 'Даац зураг', year: '2024', month: '12', image: 'img1.jpg', description: 'Зураг тайлбар' },
+          { type: 'pdf', title: 'Даац тайлан', year: '2024', month: '12', pdf: 'daats.pdf' }
+        ]
+      },
+      chiig: {
+        type: 'pdf',
+        data: [
+          { type: 'pdf', title: 'Чийгийн мэдээ', year: '2023', month: '10', pdf: 'chiig.pdf' }
+        ]
+      }
+    };
+
+    let currentSection = 'daats';
+
+    function showSection(id) {
+      currentSection = id;
+      document.getElementById('sectionTitle').textContent = id;
+      document.getElementById('clearBtn').style.display = 'none';
+      document.getElementById('yearSelect').value = '';
+      document.getElementById('monthSelect').value = '';
+      fillDropdowns();
+      renderData(sections[id].data);
+    }
+
+    function renderData(data) {
+      const grid = document.getElementById('contentGrid');
+      grid.innerHTML = '';
+      if (data.length === 0) {
+        grid.innerHTML = '<p>Мэдээлэл алга.</p>';
+        return;
+      }
+      data.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'photo-item';
+        if (item.type === 'photo') {
+          div.innerHTML = `<img src="${item.image}" alt="${item.title}"><div class="photo-title">${item.title}<br><small>${item.description}</small></div>`;
+          div.onclick = () => openPhoto(item);
+        } else {
+          div.innerHTML = `<div class="photo-title">📄 ${item.title}</div>`;
+          div.onclick = () => window.open(item.pdf, '_blank');
+        }
+        grid.appendChild(div);
+      });
+    }
+
+    function openPhoto(item) {
+      const win = window.open('', '_blank');
+      win.document.write(`
+        <html><head><title>${item.title}</title></head><body>
+        <h2>${item.title}</h2>
+        <img src="${item.image}">
+        <style>
+          body { 
+            font-family: "Georgia", serif; 
+            background: #ffffff; 
+            color: #073b2d; 
+            text-align: center;
+            padding: 2rem;
+          }
+          img { 
+            max-width: 90%; 
+            height: auto; 
+            border-radius: 12px;
+          }
+          .info { 
+            margin-top: 1rem; 
+            font-size: 1.1rem; 
+          }
+        </style>
+        <p>${item.description}</p>
+        </body></html>
+      `);
+    }
+
+    function searchCurrent() {
+      const year = document.getElementById('yearSelect').value;
+      const month = document.getElementById('monthSelect').value;
+      const filtered = sections[currentSection].data.filter(i =>
+        (!year || i.year === year) &&
+        (!month || i.month === month)
+      );
+      renderData(filtered);
+      document.getElementById('clearBtn').style.display = 'inline-block';
+    }
+
+    function clearCurrent() {
+      document.getElementById('yearSelect').value = '';
+      document.getElementById('monthSelect').value = '';
+      renderData(sections[currentSection].data);
+      document.getElementById('clearBtn').style.display = 'none';
+    }
+
+    function fillDropdowns() {
+      const yearSel = document.getElementById('yearSelect');
+      const monthSel = document.getElementById('monthSelect');
+      yearSel.innerHTML = '<option value="">Он</option>';
+      monthSel.innerHTML = '<option value="">Сар</option>';
+      const data = sections[currentSection].data;
+      const years = [...new Set(data.map(i => i.year))];
+      const months = [...new Set(data.map(i => i.month))];
+      years.forEach(y => {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        yearSel.appendChild(opt);
+      });
+      months.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m;
+        opt.textContent = m;
+        monthSel.appendChild(opt);
+      });
+    }
+
+    window.onload = () => showSection(currentSection);
+
+  </script>
+
+
+
+</body>
+</html>
